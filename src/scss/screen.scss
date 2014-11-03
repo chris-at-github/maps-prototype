@@ -29,6 +29,10 @@
 /* HTML
 ------------------------------------------------------------------------------------------------- */
 * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	outline: 0;
 	@include box-sizing(border-box);
 }
 
@@ -40,7 +44,6 @@ html {
 
 body {
 	position: relative;
-	margin: 0;
 	padding: 10px;
 	overflow: hidden;
 	font-family: $font-serif;
@@ -76,7 +79,7 @@ p, ul {
 }
 
 a {
-	color: $mint;
+	color: $blue;
 }
 
 img {
@@ -90,17 +93,6 @@ a img {
 
 strong, b {
 	font-weight: 600;
-}
-
-ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-li {
-	margin: 0;
-	padding: 0;
 }
 
 dt {
@@ -139,7 +131,7 @@ table caption {
 
 table th {
 	padding: 5px 8px;
-	border-bottom: 2px solid $mint;
+	border-bottom: 2px solid $blue;
 	font-weight: 600;
 	text-align: left;
 	vertical-align: top;
@@ -232,13 +224,13 @@ nav {
 }
 
 ::-moz-selection {
-	background: $mint;
+	background: $blue;
 	color: $white;
 	text-shadow: none;
 }
 
 ::selection {
-	background: $mint;
+	background: $blue;
 	color: $white;
 	text-shadow: none;
 }
@@ -256,7 +248,7 @@ nav {
 }
 
 .text-red {
-	color: $mint;
+	color: $blue;
 }
 
 .text-small {
@@ -341,11 +333,11 @@ input[type='text'], textarea {
 	& {
 		width: 100%;
 		padding: 8px;
-		border: 1px solid $mint-light;
+		border: 1px solid $blue;
 		border-radius: 3px;
 		background: transparent;
 		font-size: 22px;
-		color: lighten($mint, 40%);
+		color: lighten($blue, 40%);
 		@include box-sizing(border-box);
 	}
 
@@ -360,7 +352,7 @@ input[type='text'], textarea {
 		color: $black;
 	}
 
-	@include placeholder(lighten($mint, 40%));
+	@include placeholder(lighten($blue, 40%));
 }
 
 .form-item {
@@ -398,16 +390,16 @@ input[type='submit'], button, .button {
 		padding: 8px 25px;
 		border: 0;
 		border-radius: 3px;
-		background: darken($mint, 5%);
+		background: darken($blue, 5%);
 		font-size: 22px;
-		color: $mint-light;
+		color: $blue;
 		line-height: 1;
 		vertical-align: top;
 		cursor: pointer;
 	}
 
 	&:hover, &:focus, &:active {
-		background: darken($mint, 7%);
+		background: darken($blue, 7%);
 		color: $white;
 		text-decoration: none;
 	}
@@ -431,7 +423,7 @@ input[type='submit'], button, .button {
 		top: 6px; left: 2px;
 		display: block;
 		width: 7px; height: 7px;
-		background:  $mint;
+		background:  $blue;
 		border-radius: 2px;
 	}
 }
