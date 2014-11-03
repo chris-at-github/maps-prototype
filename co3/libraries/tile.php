@@ -29,6 +29,13 @@ class Co3Tile extends Co3Object {
 	protected $settings = array();
 
 	/**
+	 * append properties for toJson
+	 *
+	 * @var array
+	 */
+	protected $appendProperties = array('position');
+
+	/**
 	* Gets the X-Coordinate of the tile.
 	*
 	* @return int
@@ -73,8 +80,14 @@ class Co3Tile extends Co3Object {
 	 *
 	 * @return object;
 	 */
-	public function getCoordinates() {
+	public function getPosition() {
+		$x = $this->x * $this->settings['tile']['width'];
+		$y = $this->y * $this->settings['tile']['height'];
 
+		return Co3Array::toObject(array(
+			'x'	=> $x,
+			'y'	=> $y,
+		));
 	}
 
 	/**
