@@ -1,0 +1,450 @@
+/* Import
+------------------------------------------------------------------------------------------------- */
+@import '_variables.scss';
+@import '_mixins.scss';
+
+/* Icon-Font
+------------------------------------------------------------------------------------------------- */
+// @font-face {
+//   font-family: 'icons';
+//   src:url('../fonts/icons.eot');
+//   src:url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+//     url('../fonts/icons.woff') format('woff'),
+//     url('../fonts/icons.ttf') format('truetype'),
+//     url('../fonts/icons.svg#icons') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// [data-icon]:before {
+// 	content: attr(data-icon);
+// 	@include icon-font();
+// }
+
+// [class^='icon-']:before,
+// [class*=' icon-']:before {
+//   @include icon-font();
+// }
+
+/* HTML
+------------------------------------------------------------------------------------------------- */
+* {
+	@include box-sizing(border-box);
+}
+
+html {
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%; /* 2 */
+	-ms-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+	position: relative;
+	margin: 0;
+	padding: 115px 0 0 0;
+	overflow: hidden;
+	font-family: $font-sans-serif;
+	font-size: 15px;
+	line-height: 1.4;
+	color: $grey-dark;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+	font-weight: 300;
+	line-height: 1.1;
+}
+
+h2, .h2 {
+	margin: 0 0 15px 0;
+	font-size: 40px;
+}
+
+h3, .h3 {
+	margin: 0 0 6px 0;
+	font-size: 17px;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+h4, .h4 {
+	margin: 0 0 3px 0;
+	font-size: 15px;
+}
+
+p, ul {
+	margin: 0 0 20px 0;
+}
+
+a {
+	color: $mint;
+}
+
+img {
+	max-width: 100%;
+	line-height: 0;
+}
+
+a img {
+  border: none;
+}
+
+strong, b {
+	font-weight: 600;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+dt {
+	width: 175px;
+	float: left;
+	margin: 0 0 3px 0;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+dd {
+	margin: 0 0 3px 175px;
+	line-height: 1.4;
+}
+
+dt:before, dd:after {
+	content: '\0020';
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+dd:after {
+	clear: both;
+}
+
+table {
+	margin: 0px 0px 20px 0px;
+	border-collapse: collapse;
+}
+
+table tfoot,
+table caption {
+	display: none;
+}
+
+table th {
+	padding: 5px 8px;
+	border-bottom: 2px solid $mint;
+	font-weight: 600;
+	text-align: left;
+	vertical-align: top;
+}
+
+table td,
+table tbody th {
+	padding: 5px 8px;
+	border-bottom: 1px solid $grey-light;
+	vertical-align: top;
+	background: transparent;
+}
+
+form {
+	margin: 0;
+}
+
+input, textarea, select {
+	font-family: $font-sans-serif;
+	font-size: 100%;
+	color: $grey-dark;
+}
+
+input[type='text'], input[type='password'], textarea, select, button, .button {
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	outline: 0;
+}
+
+input[type='text'], input[type='password'], textarea, button, .button, :button {
+	-webkit-appearance: none;
+}
+
+button, input[type='button'], input[type='reset'], input[type='submit'] {
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+
+input[type='radio'], input[type='checkbox'] {
+	margin: 0;
+	padding: 0;
+}
+
+button[disabled], input[disabled] {
+	cursor: default;
+}
+
+hr, .hr {
+  height: 1px;
+	margin: 10px 0;
+	border: 0;
+  border-top: $grey-lighter;
+	background:$grey-lighter;
+	color: $grey-lighter;
+}
+
+fieldset {
+	padding: 0;
+	margin: 0 0 35px 0;
+	border: 0;
+	border-top: 1px solid $grey-light;
+}
+
+legend {
+	margin: 0 0 15px 0;
+	padding: 0 10px 0 0;
+	color: $grey;
+}
+
+article, aside, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		padding: 0;
+		background: none;
+	}
+
+	a:hover, a:focus, a:active {
+		text-decoration: none;
+	}
+}
+
+::-moz-selection {
+	background: $mint;
+	color: $white;
+	text-shadow: none;
+}
+
+::selection {
+	background: $mint;
+	color: $white;
+	text-shadow: none;
+}
+
+/* clearfix
+------------------------------------------------------------------------------------------------- */
+.clearfix {
+	@include clearfix();
+}
+
+/* Text Styles
+------------------------------------------------------------------------------------------------- */
+.text-grey {
+	color: $grey;
+}
+
+.text-red {
+	color: $mint;
+}
+
+.text-small {
+	font-size: 90%;
+}
+
+/* Icons
+------------------------------------------------------------------------------------------------- */
+.icon-arrow-left:before {
+	content: '\e800';
+}
+
+.icon-arrow-right:before {
+	content: '\e808';
+}
+
+.icon-arrow-up:before {
+	content: '\e809';
+}
+
+.icon-arrow-down:before {
+	content: '\e801';
+}
+
+/* Grid
+------------------------------------------------------------------------------------------------- */
+.fluid-grid {
+	@include make-column-row();
+}
+
+.grid {
+  @include make-column();
+}
+
+.grid-25 {
+	@include make-column-width(3);
+}
+
+.grid-33 {
+	@include make-column-width(4);
+}
+
+.grid-50 {
+	@include make-column-width(6);
+}
+
+.grid-66 {
+	@include make-column-width(8);
+}
+
+.grid-75 {
+	@include make-column-width(9);
+}
+
+// // Push
+// @include make-column-push(4);
+// @include make-column-push(8);
+
+// // Push
+// @include make-column-pull(4);
+// @include make-column-pull(8);
+
+/* Background
+----------------------------------------------------------------------------------------*/
+.background {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: none;
+	background: none;
+}
+
+/* form
+----------------------------------------------------------------------------------------*/
+input[type='text'], textarea {
+	& {
+		width: 100%;
+		padding: 8px;
+		border: 1px solid $mint-light;
+		border-radius: 3px;
+		background: transparent;
+		font-size: 22px;
+		color: lighten($mint, 40%);
+		@include box-sizing(border-box);
+	}
+
+	&:focus {
+		border: 1px solid $white;
+		outline: 0;
+		color: $white;
+	}
+
+	&.form-field-error {
+		border: 1px solid $red;
+		color: $black;
+	}
+
+	@include placeholder(lighten($mint, 40%));
+}
+
+.form-item {
+	margin: 0 0 20px 0;
+}
+
+.form-label {
+	display: none;
+}
+
+.form-label label {
+	font-weight: normal;
+}
+
+.form-field {
+	position: relative;
+}
+
+/* button
+----------------------------------------------------------------------------------------*/
+.form-actions {
+	& {
+		margin: 0 0 10px 0;
+	}
+
+	input[type='submit'], button, .button {
+		margin: 0 5px 0 0;
+		vertical-align: middle;
+	}
+}
+
+input[type='submit'], button, .button {
+	& {
+		margin: 0;
+		padding: 8px 25px;
+		border: 0;
+		border-radius: 3px;
+		background: darken($mint, 5%);
+		font-size: 22px;
+		color: $mint-light;
+		line-height: 1;
+		vertical-align: top;
+		cursor: pointer;
+	}
+
+	&:hover, &:focus, &:active {
+		background: darken($mint, 7%);
+		color: $white;
+		text-decoration: none;
+	}
+}
+
+/* list-default
+----------------------------------------------------------------------------------------*/
+.list-default {
+	& {
+		margin: 0 0 20px 0;
+	}
+
+	li {
+		position: relative;
+		padding: 0 0 0 19px;
+	}
+
+	li:before {
+		content: '';
+		position: absolute;
+		top: 6px; left: 2px;
+		display: block;
+		width: 7px; height: 7px;
+		background:  $mint;
+		border-radius: 2px;
+	}
+}
+
+/* Layout
+----------------------------------------------------------------------------------------*/
+.outer {
+	position: relative;
+	max-width: 1750px;
+}
+
+.inner {
+	width: 980px;
+	max-width: 100%;
+	margin: 0 0 0 150px;
+}
