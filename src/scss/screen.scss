@@ -440,3 +440,19 @@ input[type='submit'], button, .button {
 	max-width: 100%;
 	margin: 0 0 0 150px;
 }
+
+/* Tile Container
+----------------------------------------------------------------------------------------*/
+#tile-container {
+	& {
+		position: relative;
+	}
+
+	.tile {
+		position: absolute;
+		width: 45px;
+		height: 45px;
+		background: $grey;
+		border: 1px solid $grey-darker;
+	}
+}
