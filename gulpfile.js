@@ -24,7 +24,7 @@ gulp.task('imagemin', function() {
 			imageBuild	= './images';
 
 	gulp.src(imageSource)
-		.pipe(changed(imageBuild))
+		.pipe(changed(imageSource))
 		.pipe(imagemin())
 		.pipe(gulp.dest(imageBuild));
 });
