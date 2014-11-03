@@ -13,9 +13,8 @@ class Co3Object {
 	 *
 	 * @var array private GET Klassenvariablen
 	 * @access protected
-	 * @since       1.2
 	 */
-	protected $_disabledGetProperties = array();
+	protected $disabledGetProperties = array();
 
 	/**
 	 * Array mit nicht direkt aufrufbaren Klassenvariablen, die so nicht mehr
@@ -23,9 +22,26 @@ class Co3Object {
 	 *
 	 * @var array private SET Klassenvariablen
 	 * @access protected
-	 * @since       1.2
 	 */
-	protected $_disabledSetProperties = array();
+	protected $disabledSetProperties = array();
+
+	/**
+	 * Array mit Namen, die nicht einer Eigenschaft entsprechen, aber eine Getter Methode
+	 * besitzen und deswegen in der toJson oder toArray Methode verwendet werden sollen
+	 *
+	 * @var array private SET Klassenvariablen
+	 * @access protected
+	 */
+	protected $appendProperties = array();
+
+	/**
+	 * Konstruktur
+	 *
+	 * @return void
+	 */
+	public function __construct() {
+		$this->disabledGetProperties = array_merge($this->disabledGetProperties, array('disabledGetProperties', 'disabledSetProperties', 'appendProperties'));
+	}
 
 	/**
 	 * liefert den Wert einer Klassenvariable. Es wird erst versucht eine Methode Namens
@@ -37,12 +53,12 @@ class Co3Object {
 	 * @return Wert der Methode oder Variable
 	 */
 	public function __get($property) {
-		$get_method_name = 'get' . ucfirst((string) $property);
-		if(method_exists($this, $get_method_name) === true) {
-			return $this->$get_method_name();
+		$getMethodName = 'get' . ucfirst((string) $property);
+		if(method_exists($this, $getMethodName) === true) {
+			return $this->$getMethodName();
 		}
 
-		if(isset($this->$property) === true && in_array($property, $this->_disabledGetProperties) === false) {
+		if(isset($this->$property) === true && in_array($property, $this->disabledGetProperties) === false) {
 			return $this->$property;
 		}
 
@@ -69,16 +85,40 @@ class Co3Object {
 			}
 		}
 
-		$set_method_name = 'set' . ucfirst((string) $property);
-		if(method_exists($this, $set_method_name) === true) {
-			$this->$set_method_name($value);
-			return true;
+		$setMethodName = 'set' . ucfirst((string) $property);
+		if(method_exists($this, $setMethodName) === true) {
+			$this->$setMethodName($value);
+			return $this;
 		}
 
-		if(in_array($property, $this->_disabledSetProperties) === false) {
+		if(in_array($property, $this->disabledSetProperties) === false) {
 			$this->$property = $value;
-			return true;
+			return $this;
 		}
+	}
+
+	/**
+	 * wandelt das Object in ein JSON Objekt um
+	 *
+	 * @return string JSON String
+	 */
+	public function toJson() {
+		$return 			=	array();
+		$properties 	= array_merge(call_user_func('get_object_vars', $this), array_flip($this->appendProperties));
+
+		foreach($properties as $property => $value) {
+
+			$getMethodName = 'get' . ucfirst((string) $property);
+			if(method_exists($this, $getMethodName) === true) {
+				$value = $this->$getMethodName();
+			}
+
+			if(in_array($property, $this->disabledGetProperties) === false) {
+				$return[$property] = $value;
+			}
+		}
+
+		return Co3Json::encode($return);
 	}
 }
 ?>
