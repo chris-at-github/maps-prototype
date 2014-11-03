@@ -28,7 +28,7 @@
 | Schreibarbeit zu sparen
 |
 */
-	include($_SERVER['DOCUMENT_ROOT'] . '/co/functions.php');
+	include($_SERVER['DOCUMENT_ROOT'] . '/co3/functions.php');
 
 
 /*
@@ -39,9 +39,9 @@
 | sie in die Registry
 |
 */
-	include($_SERVER['DOCUMENT_ROOT'] . '/co/libraries/loader.php');
+	include($_SERVER['DOCUMENT_ROOT'] . '/co3/libraries/loader.php');
 
 	function __autoload($name) {
-		return tLoader::_($name);
+		return Co3Loader::_($name);
 	}
 ?>

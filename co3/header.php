@@ -7,7 +7,7 @@
 | Array mit den Einstellungen, Menueeintraegen, usw. laden
 |
 */
-	include($_SERVER['DOCUMENT_ROOT'] . '/co/config.php');
+	include($_SERVER['DOCUMENT_ROOT'] . '/co3/config.php');
 
 /*
 |-----------------------------------------------------------------
@@ -17,7 +17,7 @@
 | waehrend des Seitenaufbaus benoetigt werden
 |
 */
-	include($_SERVER['DOCUMENT_ROOT'] . '/co/init.php');
+	include($_SERVER['DOCUMENT_ROOT'] . '/co3/init.php');
 
 /*
 |-----------------------------------------------------------------
@@ -29,11 +29,11 @@
 | verwendet
 |
 */
-	if(isset($_CO_CONFIG_LOCAL) === false) {
-		$_CO_CONFIG_LOCAL = array();
+	if(isset($_CO3_CONFIG_LOCAL) === false) {
+		$_CO3_CONFIG_LOCAL = array();
 	}
 
-	$_CO_CONFIG = tArray::arrayMergeRecursive($_CO_CONFIG_DEFAULT, $_CO_CONFIG_LOCAL);
+	$_CO3_CONFIG = Co3Array::arrayMergeRecursive($_CO3_CONFIG_DEFAULT, $_CO3_CONFIG_LOCAL);
 
 /*
 |-----------------------------------------------------------------
@@ -43,14 +43,14 @@
 | Menues, des Breadcrumbs, ... usw. benoetigt wird
 |
 */
-	$menu = tMenu::singleton()
+	$menu = Co3Menu::singleton()
 		->reset()
-		->setConfiguration($_CO_CONFIG)
+		->setConfiguration($_CO3_CONFIG)
 		->setActive($_SERVER['PHP_SELF'])
-		->setData(array_merge($_CO_MENU['mainmenu']));
+		->setData(array_merge($_CO3_MENU['mainmenu']));
 
-	if(isset($_CO_HEADER) === false) {
-		$_CO_HEADER = $menu->getActiveTitle();
+	if(isset($_CO3_HEADER) === false) {
+		$_CO3_HEADER = $menu->getActiveTitle();
 	}
 
 /*
@@ -61,16 +61,16 @@
 | Spalte, abhaenig von der aktuellen URL
 |
 */
-	if(isset($_CO_WIDGET_LOCAL) === false) {
-		$_CO_WIDGET_LOCAL = array();
+	if(isset($_CO3_WIDGET_LOCAL) === false) {
+		$_CO3_WIDGET_LOCAL = array();
 	}
 
-	$_CO_WIDGET	= array_merge($_CO_WIDGET_DEFAULT, $_CO_WIDGET_LOCAL);
+	$_CO3_WIDGET	= array_merge($_CO3_WIDGET_DEFAULT, $_CO3_WIDGET_LOCAL);
 
 	// Widget Factory initialisieren
-	$widget			= tWidget::singleton()
-		->setConfiguration($_CO_CONFIG)
-		->setData($_CO_WIDGET);
+	$widget			= Co3Widget::singleton()
+		->setConfiguration($_CO3_CONFIG)
+		->setData($_CO3_WIDGET);
 ?>
 <!doctype html>
 <!--[if ie 7]> <html class="no-js ie ie7" lang="de" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
@@ -89,8 +89,8 @@
 	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="cache-control" content="must-revalidate" />
 
-	<meta name="keywords" content="<?php echo $_CO_CONFIG['meta']['keywords']; ?>" />
-	<meta name="description" content="<?php echo $_CO_CONFIG['meta']['description']; ?>" />
+	<meta name="keywords" content="<?php echo $_CO3_CONFIG['meta']['keywords']; ?>" />
+	<meta name="description" content="<?php echo $_CO3_CONFIG['meta']['description']; ?>" />
 	<meta name="author" content="Christian Pschorr; http://christian-pschorr.de/" />
 	<meta name="language" content="german, deutsch, de, ch, at" />
 
@@ -105,8 +105,8 @@
 
 	<!-- style -->
 	<link rel="stylesheet" type="text/css" href="/css/screen.css" media="screen, projection, print" />
-	<?php if(empty($_CO_CONFIG['css']) === false) { ?>
-		<?php foreach($_CO_CONFIG['css'] as $css) { ?>
+	<?php if(empty($_CO3_CONFIG['css']) === false) { ?>
+		<?php foreach($_CO3_CONFIG['css'] as $css) { ?>
 			<link rel="stylesheet" type="text/css" href="<?php echo $css; ?>" media="screen, projection, print" />
 		<?php } ?>
 	<?php } ?>
@@ -116,13 +116,13 @@
 <body class="no-js">
 
 	<!-- page -->
-	<div id="page" <?php if($_CO_CONFIG['widescreen'] === true) { echo 'class="widescreen"'; } ?>>
+	<div id="page" <?php if($_CO3_CONFIG['widescreen'] === true) { echo 'class="widescreen"'; } ?>>
 		<header id="header" class="clearfix">
 			<nav id="mainmenu" class="clearfix">
 				<?php
 					echo $menu
 						->reset()
-						->setData($_CO_MENU['mainmenu'])
+						->setData($_CO3_MENU['mainmenu'])
 						->setOptions(array(
 							'maxDepth'	=> 1
 						))

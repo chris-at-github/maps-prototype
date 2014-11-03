@@ -5,7 +5,7 @@
  * @copyright	Copyright (C) 2012 Christian Pschorr
  * @license		GNU/GPL
  */
-class tLoader {
+class Co3Loader {
 
 	/**
 	 * Liste von bereits geladene Klassen und Dateien
@@ -22,7 +22,7 @@ class tLoader {
 	 * @return boolean
 	 */
 	public static function _($classname) {
-		$filename		= strtolower(ltrim($classname, 't'));
+		$filename		= strtolower(substr($classname, 3));
 
 		// Instanz zur Klasse
 		if(self::import($filename) && class_exists($classname)) {
@@ -69,7 +69,7 @@ class tLoader {
 
 		// es ist ein Array aus Pfaden
 		if(is_array($filepath)) {
-			foreach($filepath as $tmp) { tLoader::import($tmp); }
+			foreach($filepath as $tmp) { Co3Loader::import($tmp); }
 			return true;
 		}
 
@@ -78,15 +78,15 @@ class tLoader {
 			$fileinfo['dirname'] = '';
 		}
 
-		$filepath = $_SERVER['DOCUMENT_ROOT'] . '/co/libraries/' . $fileinfo['dirname'] . '/' . strtolower($fileinfo['basename']);
+		$filepath = $_SERVER['DOCUMENT_ROOT'] . '/co3/libraries/' . $fileinfo['dirname'] . '/' . strtolower($fileinfo['basename']);
 		$filepath = preg_replace('#[/\\\\]+#', '/', $filepath);
 
 		if(!isset($fileinfo['extension']) || empty($fileinfo['extension'])) {
 			$filepath .= '.php';
 		}
 
-		if(is_file($filepath) === true && tLoader::exists($filepath) === false) {
-			tLoader::register($filepath);
+		if(is_file($filepath) === true && Co3Loader::exists($filepath) === false) {
+			Co3Loader::register($filepath);
 			include($filepath);
 
 			return true;

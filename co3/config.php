@@ -5,7 +5,7 @@
 | Konfiguration
 |-------------------------------------------------------------------------------
 */
-$_CO_CONFIG_DEFAULT = array(
+$_CO3_CONFIG_DEFAULT = array(
 
 	'meta' => array(
 		'keywords'		=> '',
@@ -37,7 +37,7 @@ $_CO_CONFIG_DEFAULT = array(
 | Menue
 |-------------------------------------------------------------------------------
 */
-$_CO_MENU['mainmenu'] = array(
+$_CO3_MENU['mainmenu'] = array(
 );
 
 /*
@@ -45,6 +45,6 @@ $_CO_MENU['mainmenu'] = array(
 | Widgets
 |-------------------------------------------------------------------------------
 */
-$_CO_WIDGET_DEFAULT = array();
+$_CO3_WIDGET_DEFAULT = array();
 
 ?>

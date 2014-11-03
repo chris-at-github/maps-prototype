@@ -5,7 +5,7 @@
  * @copyright	Copyright (C) 2012 Christian Pschorr
  * @license		GNU/GPL
  */
-class tMenu {
+class Co3Menu {
 
 	/**
 	 * Instanz auf das eigene Objekt, um mehrfache Instanzen zu verhindern
@@ -33,7 +33,7 @@ class tMenu {
 	 * @var string $_config
 	 * @access private
 	 */
-	private $config = null;	
+	private $config = null;
 
 	/**
 	 * aktiver Pfad
@@ -184,7 +184,7 @@ class tMenu {
 
 		return $this;
 	}
-	
+
 	/**
 	 * liefert den Title des aktiven Elements
 	 *
@@ -194,13 +194,13 @@ class tMenu {
 	public function getActiveTitle() {
 		$title 	= array();
 		$ret		= null;
-		
+
 		if(empty($this->_breadcrumb) === false) {
 			$ret = $this->_breadcrumb[$this->_active]['title'];
 		}
-		
-		return $ret;		
-	}	
+
+		return $ret;
+	}
 
 	/**
 	 * baut den HTML-Code zusammen und gibt ihn zurueck
@@ -222,7 +222,7 @@ class tMenu {
 		if($r >= $this->_options['minDepth']) {
 			$minDepthEnabled = true;
 		}
-		
+
 		$i = 0;
 		$n = count($data);
 

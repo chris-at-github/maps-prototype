@@ -5,7 +5,7 @@
  * @copyright	Copyright (C) 2012 Christian Pschorr
  * @license		GNU/GPL
  */
-class tWidget {
+class Co3Widget {
 
 	/**
 	 * Instanz auf das eigene Objekt, um mehrfache Instanzen zu verhindern
@@ -104,38 +104,38 @@ class tWidget {
 	 */
 	public function render($key, $attr = array(), $config = array(), $data = null) {
 		$ret = null;
-		
+
 		if($data === null) {
 			$data = $this->data;
 		}
 
 		if($data !== null && isset($data[$key]) === true) {
-		
-			if(is_array($data[$key]) === true) {		
+
+			if(is_array($data[$key]) === true) {
 				$ret = array();
-				
+
 				foreach($data[$key] as $k => $v) {
 					$ret[] = $this->render($k, $attr, $config, $data[$key]);
 				}
 
 				return implode("\n", $ret);
 			}
-		
+
 			if(is_file($file = ($_SERVER['DOCUMENT_ROOT'] . $data[$key]))) {
-			
+
 				// Konfig bereitstellen
 				$config = array_merge($this->config, $config);
-			
+
 				// Variablen zuweisen, die im Include vorhanden sein sollen
 				extract($attr);
-			
+
 				ob_start();
 				include($file);
 				$ret = ob_get_contents();
 				ob_end_clean();
-			}			
+			}
 		}
-		
+
 		return $ret;
 	}
 }

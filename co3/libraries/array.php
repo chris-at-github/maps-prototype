@@ -5,7 +5,7 @@
  * @copyright	Copyright (C) 2012 Christian Pschorr
  * @license		GNU/GPL
  */
-class tArray {
+class Co3Array {
 
 	/**
 	 * Explodes a $string delimited by $delimeter and passes each item in the array through intval().
