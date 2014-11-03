@@ -119,5 +119,15 @@ class Co3Array {
 			return null;
 		}
 	}
+
+	/**
+	 * Transform an array to an object
+	 *
+	 * @param array $array
+	 * @return object
+	 */
+	static public function toObject($array) {
+		return (object) $array;
+	}
 }
 ?>
