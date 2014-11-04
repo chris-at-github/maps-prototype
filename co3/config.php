@@ -29,7 +29,9 @@ $_CO3_CONFIG_DEFAULT = array(
 
 	'css'	=> array(),
 
-	'script'	=> array()
+	'script'	=> array(
+		'js/app.js'
+	)
 );
 
 /*

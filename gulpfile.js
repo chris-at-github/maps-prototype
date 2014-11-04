@@ -9,6 +9,7 @@ var changed		= require('gulp-changed');
 var imagemin	= require('gulp-imagemin');
 
 // include js plugins
+var browserify	= require('gulp-browserify');
 var concat			= require('gulp-concat');
 var stripDebug	= require('gulp-strip-debug');
 var uglify			= require('gulp-uglify');
@@ -31,10 +32,17 @@ gulp.task('imagemin', function() {
 
 // JS concat, strip debugging and minify
 gulp.task('scripts', function() {
-	gulp.src(['./src/js/*.js'])
+	// gulp.src(['./src/js/*.js'])
+	// 	.pipe(plumber())
+	// 	// .pipe(concat('script.js'))
+	// 	// .pipe(stripDebug())
+	// 	.pipe(uglify())
+	// 	.pipe(gulp.dest('./js/'));
+	gulp.src('src/js/app.js')
 		.pipe(plumber())
-		// .pipe(concat('script.js'))
-		// .pipe(stripDebug())
+		.pipe(browserify({
+			insertGlobals: true
+		}))
 		.pipe(uglify())
 		.pipe(gulp.dest('./js/'));
 });
