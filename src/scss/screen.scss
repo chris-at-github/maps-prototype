@@ -446,6 +446,9 @@ input[type='submit'], button, .button {
 #tile-container {
 	& {
 		position: relative;
+		width: 300px;
+		height: 200px;
+		background: $grey-light;
 	}
 
 	.tile {
@@ -453,6 +456,6 @@ input[type='submit'], button, .button {
 		width: 45px;
 		height: 45px;
 		background: $grey;
-		border: 1px solid $grey-darker;
+		border: 1px solid $grey-light;
 	}
 }
