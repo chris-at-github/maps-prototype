@@ -38,7 +38,7 @@ gulp.task('scripts', function() {
 	// 	// .pipe(stripDebug())
 	// 	.pipe(uglify())
 	// 	.pipe(gulp.dest('./js/'));
-	gulp.src('src/js/app.js')
+	gulp.src('src/js/application.js')
 		.pipe(plumber())
 		.pipe(browserify({
 			insertGlobals: true
