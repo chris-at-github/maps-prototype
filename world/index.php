@@ -15,7 +15,9 @@
 ?>
 
 <script type="text/javascript">
-	var tile = <?php echo $tile->toJson() ?>;
+	var data = {
+		tile: <?php echo $tile->toJson() ?>
+	};
 </script>
 
 <div id="tile-container"></div>
