@@ -12,11 +12,17 @@
 		->setSettings($_CO3_CONFIG_WORLD)
 		->setX(1)
 		->setY(1);
+
+	$tile2 = new Co3Tile();
+	$tile2
+		->setSettings($_CO3_CONFIG_WORLD)
+		->setX(0)
+		->setY(0);
 ?>
 
 <script type="text/javascript">
 	var data = {
-		tile: <?php echo $tile->toJson() ?>
+		tiles: [<?php echo $tile->toJson() ?>, <?php echo $tile2->toJson() ?>]
 	};
 </script>
 
