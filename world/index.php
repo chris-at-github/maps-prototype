@@ -18,6 +18,12 @@
 		->setSettings($_CO3_CONFIG_WORLD)
 		->setX(0)
 		->setY(0);
+
+	$collection = new Co3Collection();
+	$collection->add($tile);
+	$collection->add($tile2);
+
+	echo $collection->toJson();
 ?>
 
 <script type="text/javascript">
