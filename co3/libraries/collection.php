@@ -47,7 +47,7 @@ class Co3Collection implements Iterator {
 		$json = array();
 
 		foreach($this->storage as $key => $object) {
-			$json[] = $object->toJson();
+			$json[] = $object->toArray();
 		}
 
 		return Co3Json::encode($json);
