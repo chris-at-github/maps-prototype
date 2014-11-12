@@ -22,13 +22,11 @@
 	$collection = new Co3Collection();
 	$collection->add($tile);
 	$collection->add($tile2);
-
-	echo $collection->toJson();
 ?>
 
 <script type="text/javascript">
 	var data = {
-		tiles: [<?php echo $tile->toJson() ?>, <?php echo $tile2->toJson() ?>]
+		tiles: <?php echo $collection->toJson() ?>
 	};
 </script>
 
