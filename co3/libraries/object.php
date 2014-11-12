@@ -103,6 +103,15 @@ class Co3Object {
 	 * @return string JSON String
 	 */
 	public function toJson() {
+		return Co3Json::encode($this->toArray());
+	}
+
+	/**
+	 * wandelt das Object in ein Array um
+	 *
+	 * @return array
+	 */
+	public function toArray() {
 		$return 			=	array();
 		$properties 	= array_merge(call_user_func('get_object_vars', $this), array_flip($this->appendProperties));
 
@@ -118,7 +127,7 @@ class Co3Object {
 			}
 		}
 
-		return Co3Json::encode($return);
+		return $return;
 	}
 }
 ?>
