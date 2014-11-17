@@ -17,13 +17,17 @@
 ?>
 
 <script type="text/javascript">
-	var data = {
-		tiles: <?php echo $collection->toJson() ?>
-	};
+	var Maps = {
+		settings:	<?php echo Co3Json::encode($_CO3_CONFIG_WORLD); ?>,
+		data: {
+			tiles: <?php echo $collection->toJson(); ?>
+		}
+	}
 </script>
 
 <div id="map-container">
 	<div id="tile-container"></div>
+	<div id="tile-debug-container"></div>
 </div>
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/co3/footer.php'); ?>
