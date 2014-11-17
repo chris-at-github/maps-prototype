@@ -1,27 +1,19 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/co3/header.php'); ?>
 
 <?php
-	// for($x = 0; $x <= 5; $x++) {
-	// 	for($y = 0; $y <= 3; $y++) {
-	// 		echo $x . 'x' . $y;
-	// 	}
-	// }
-
-	$tile = new Co3Tile();
-	$tile
-		->setSettings($_CO3_CONFIG_WORLD)
-		->setX(1)
-		->setY(1);
-
-	$tile2 = new Co3Tile();
-	$tile2
-		->setSettings($_CO3_CONFIG_WORLD)
-		->setX(0)
-		->setY(0);
-
 	$collection = new Co3Collection();
-	$collection->add($tile);
-	$collection->add($tile2);
+
+	for($x = 0; $x <= 1; $x++) {
+		for($y = 0; $y <= 1; $y++) {
+			$tile = new Co3Tile();
+			$tile
+				->setSettings($_CO3_CONFIG_WORLD)
+				->setX($x)
+				->setY($y);
+
+			$collection->add($tile);
+		}
+	}
 ?>
 
 <script type="text/javascript">
@@ -30,6 +22,8 @@
 	};
 </script>
 
-<div id="tile-container"></div>
+<div id="map-container">
+	<div id="tile-container"></div>
+</div>
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/co3/footer.php'); ?>
