@@ -45,7 +45,7 @@ html {
 body {
 	position: relative;
 	padding: 10px;
-	overflow: hidden;
+	background: $grey-light;
 	font-family: $font-serif;
 	font-size: 15px;
 	line-height: 1.4;
@@ -441,21 +441,29 @@ input[type='submit'], button, .button {
 	margin: 0 0 0 150px;
 }
 
+/* Map Container
+----------------------------------------------------------------------------------------*/
+#map-container {
+	position: relative;
+	width: 300px;
+	height: 200px;
+	background: $white;
+}
+
 /* Tile Container
 ----------------------------------------------------------------------------------------*/
 #tile-container {
 	& {
-		position: relative;
-		width: 300px;
-		height: 200px;
-		background: $grey-light;
+		position: absolute;
+		top: 10px; left: 10px;
+		bottom: 10px; right: 10px;
 	}
 
 	.tile {
 		position: absolute;
 		width: 45px;
 		height: 45px;
-		background: $grey;
+		background: $white;
 		border: 1px solid $grey-light;
 	}
 }
