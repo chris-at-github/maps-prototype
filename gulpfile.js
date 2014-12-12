@@ -32,13 +32,7 @@ gulp.task('imagemin', function() {
 
 // JS concat, strip debugging and minify
 gulp.task('scripts', function() {
-	// gulp.src(['./src/js/*.js'])
-	// 	.pipe(plumber())
-	// 	// .pipe(concat('script.js'))
-	// 	// .pipe(stripDebug())
-	// 	.pipe(uglify())
-	// 	.pipe(gulp.dest('./js/'));
-	gulp.src('src/js/application.js')
+	gulp.src('src/js/Application.js')
 		.pipe(plumber())
 		.pipe(browserify({
 			insertGlobals: true

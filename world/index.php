@@ -27,7 +27,7 @@
 
 <div id="map-container">
 	<div id="tile-container"></div>
-	<div id="tile-debug-container"></div>
+	<div id="tile-grid-container"></div>
 </div>
 
 <?php include($_SERVER['DOCUMENT_ROOT'] . '/co3/footer.php'); ?>
