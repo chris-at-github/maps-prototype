@@ -10,7 +10,7 @@ function TileGrid(options) {
 
 
 		var position = instance.getPosition();
-		console.log(position);
+		// console.log(position);
 	}
 
 	initialize();

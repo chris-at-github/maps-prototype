@@ -8,6 +8,6 @@ $.each(Maps.data.tiles, function(i, tileData) {
 });
 
 
-var tileGridContainer = $('#tile-grid-container');
-var tileGridInstance = new TileGrid({x: 0, y: 1});
-		tileGridContainer.append(tileGridInstance.render());
+// var tileGridContainer = $('#tile-grid-container');
+// var tileGridInstance = new TileGrid({x: 0, y: 1});
+// 		tileGridContainer.append(tileGridInstance.render());

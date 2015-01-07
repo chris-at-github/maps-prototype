@@ -463,7 +463,8 @@ input[type='submit'], button, .button {
 		position: absolute;
 		width: 45px;
 		height: 45px;
-		border: 1px solid gold;
+		margin: -1px 0 0 -1px;
+		border: 1px solid $grey-lighter;
 	}
 }
 

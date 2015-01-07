@@ -3,8 +3,8 @@
 <?php
 	$collection = new Co3Collection();
 
-	for($x = 0; $x <= 1; $x++) {
-		for($y = 0; $y <= 1; $y++) {
+	for($x = 0; $x <= 5; $x++) {
+		for($y = 0; $y <= 3; $y++) {
 			$tile = new Co3Tile();
 			$tile
 				->setSettings($_CO3_CONFIG_WORLD)

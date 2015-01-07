@@ -41,8 +41,8 @@ $_CO3_CONFIG_DEFAULT = array(
 */
 $_CO3_CONFIG_WORLD = array(
 	'tile' => array(
-		'width'		=> 45,
-		'height'	=> 45
+		'width'		=> 44,
+		'height'	=> 44
 	)
 );
 
